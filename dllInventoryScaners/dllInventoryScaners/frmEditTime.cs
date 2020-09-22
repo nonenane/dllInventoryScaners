@@ -174,17 +174,17 @@ namespace dllInventoryScaners
                 e.Handled = true;
             }
 
-            if ((e.KeyChar != (char)8) && ((sender as TextBox).Text.ToString().Length == 2 || (sender as TextBox).Text.ToString().Length == 5))
-            {
-                TextBox tb = sender as TextBox;
+            //if ((e.KeyChar != (char)8) && ((sender as TextBox).Text.ToString().Length == 2 || (sender as TextBox).Text.ToString().Length == 5))
+            //{
+            //    TextBox tb = sender as TextBox;
 
-                if ((tb.Text.Length == 2 || tb.Text.Length == 5))
-                {
-                    tb.Text += ":";
-                    tb.SelectionStart = tb.Text.Length;
-                    tb.KeyPress += new KeyPressEventHandler(tb_KeyPress);
-                }
-            }
+            //    if ((tb.Text.Length == 2 || tb.Text.Length == 5))
+            //    {
+            //        tb.Text += ":";
+            //        tb.SelectionStart = tb.Text.Length;
+            //        tb.KeyPress += new KeyPressEventHandler(tb_KeyPress);
+            //    }
+            //}
 
             if (e.KeyChar == (char)8)
             {
