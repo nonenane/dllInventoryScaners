@@ -15,7 +15,7 @@ namespace dllInventoryScaners
     {
         private DataTable dtMainTable;
         private int countDayForEdit = 0;
-
+        private ToolTip tp = new ToolTip();
         public frmMainForm()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace dllInventoryScaners
             inti_combobobox();
 
 
-            ToolTip tp = new ToolTip();
+            tp.ShowAlways = true;
             tp.SetToolTip(btHelp,"Помощь");
             tp.SetToolTip(btFindPlace, "Поиск");
             tp.SetToolTip(btSaveTimeToHoliday, "Сохранить");
@@ -522,8 +522,10 @@ namespace dllInventoryScaners
 
             int id_kadr = int.Parse(dtMainTable.DefaultView[dgvPlane.CurrentRow.Index]["id_Kadr"].ToString());
             int id_ttost = int.Parse(cbInventDate.SelectedValue.ToString());
+            string FIO = (string)dtMainTable.DefaultView[dgvPlane.CurrentRow.Index]["fio"];
+            int id_Shop = (int)dtMainTable.DefaultView[dgvPlane.CurrentRow.Index]["id_Shop"];
 
-            frmEditTime frm = new frmEditTime((dgvScaners.DataSource as DataTable), id_kadr, id_ttost);
+            frmEditTime frm = new frmEditTime((dgvScaners.DataSource as DataTable), id_kadr, id_ttost) { fio = FIO, id_Shop = id_Shop, dateInvent = DateTime.Parse(cbInventDate.Text) };
             if (DialogResult.OK == frm.ShowDialog())
                 get_data();
         }
@@ -536,6 +538,41 @@ namespace dllInventoryScaners
         private void btFindPlace_Click(object sender, EventArgs e)
         {
             get_data(tbNamePlace.Text.Trim());
+        }
+
+        Control usedControl = null;
+        private void frmMainForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            //foreach (Control cnt in this.Controls)
+            //{
+            //    if (cnt is Button && !cnt.Enabled)
+            //    {
+            //        if (cnt.Location.X <= e.Location.X && e.Location.X <= cnt.Location.X + cnt.Size.Width && (usedControl == null || !usedControl.Equals(cnt)))
+            //        {
+            //            usedControl = cnt;
+            //            Console.WriteLine($"X:{e.Location.X},Y:{e.Location.Y}");                        
+            //            string value = tp.GetToolTip(cnt);
+            //            //tp.Show(value, this,2000);
+            //            //tp.AutomaticDelay = 5;
+            //            // (value, this);
+            //            break;
+            //        }                  
+            //    }
+            //}
+
+        }
+
+        private void btAddTime_Click(object sender, EventArgs e)
+        {
+            int id_kadr = -1;
+            int id_ttost = int.Parse(cbInventDate.SelectedValue.ToString());
+
+            DataTable dtSingleTable = readSQL.getSingleTableForScaner(id_kadr, id_ttost);
+
+
+            frmEditTime frm = new frmEditTime(dtSingleTable, id_kadr, id_ttost) { dateInvent = DateTime.Parse(cbInventDate.Text) };
+            if (DialogResult.OK == frm.ShowDialog())
+                get_data();
         }
     }
 }

@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvScaners = new System.Windows.Forms.DataGridView();
             this.cPlace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cDepsPlace = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +44,11 @@
             this.cTimeEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPlane = new System.Windows.Forms.DataGridView();
+            this.cFio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cDeps = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cGraph = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cItogTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cTakeTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbInventDate = new System.Windows.Forms.ComboBox();
             this.tbFIo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -74,11 +79,7 @@
             this.btSettings = new System.Windows.Forms.Button();
             this.btClose = new System.Windows.Forms.Button();
             this.btAddScaner = new System.Windows.Forms.Button();
-            this.cFio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cDeps = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cGraph = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cItogTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cTakeTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btAddTime = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvScaners)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlane)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -93,14 +94,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvScaners.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvScaners.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvScaners.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvScaners.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvScaners.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cPlace,
@@ -158,9 +159,9 @@
             // cTimeStart
             // 
             this.cTimeStart.DataPropertyName = "timeStart";
-            dataGridViewCellStyle2.Format = "T";
-            dataGridViewCellStyle2.NullValue = null;
-            this.cTimeStart.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Format = "T";
+            dataGridViewCellStyle8.NullValue = null;
+            this.cTimeStart.DefaultCellStyle = dataGridViewCellStyle8;
             this.cTimeStart.HeaderText = "Время взятия";
             this.cTimeStart.Name = "cTimeStart";
             this.cTimeStart.ReadOnly = true;
@@ -168,9 +169,9 @@
             // cTimeEnd
             // 
             this.cTimeEnd.DataPropertyName = "timeEnd";
-            dataGridViewCellStyle3.Format = "T";
-            dataGridViewCellStyle3.NullValue = null;
-            this.cTimeEnd.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Format = "T";
+            dataGridViewCellStyle9.NullValue = null;
+            this.cTimeEnd.DefaultCellStyle = dataGridViewCellStyle9;
             this.cTimeEnd.HeaderText = "Время сдачи";
             this.cTimeEnd.Name = "cTimeEnd";
             this.cTimeEnd.ReadOnly = true;
@@ -190,14 +191,14 @@
             this.dgvPlane.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPlane.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPlane.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPlane.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvPlane.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPlane.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cFio,
@@ -217,6 +218,48 @@
             this.dgvPlane.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvPlane_RowPostPaint);
             this.dgvPlane.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvPlane_RowPrePaint);
             this.dgvPlane.SelectionChanged += new System.EventHandler(this.dgvPlane_SelectionChanged);
+            // 
+            // cFio
+            // 
+            this.cFio.DataPropertyName = "fio";
+            this.cFio.HeaderText = "ФИО";
+            this.cFio.Name = "cFio";
+            this.cFio.ReadOnly = true;
+            // 
+            // cDeps
+            // 
+            this.cDeps.DataPropertyName = "nameDeps";
+            this.cDeps.HeaderText = "Отдел";
+            this.cDeps.Name = "cDeps";
+            this.cDeps.ReadOnly = true;
+            // 
+            // cGraph
+            // 
+            this.cGraph.DataPropertyName = "graphWork";
+            this.cGraph.HeaderText = "График работы";
+            this.cGraph.Name = "cGraph";
+            this.cGraph.ReadOnly = true;
+            // 
+            // cItogTime
+            // 
+            this.cItogTime.DataPropertyName = "TimeWorked_to_Time";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.NullValue = null;
+            this.cItogTime.DefaultCellStyle = dataGridViewCellStyle11;
+            this.cItogTime.HeaderText = "Итоговое время подсчета участка";
+            this.cItogTime.Name = "cItogTime";
+            this.cItogTime.ReadOnly = true;
+            // 
+            // cTakeTime
+            // 
+            this.cTakeTime.DataPropertyName = "CompensatoryTime";
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.Format = "N2";
+            dataGridViewCellStyle12.NullValue = null;
+            this.cTakeTime.DefaultCellStyle = dataGridViewCellStyle12;
+            this.cTakeTime.HeaderText = "Заработанный отгул";
+            this.cTakeTime.Name = "cTakeTime";
+            this.cTakeTime.ReadOnly = true;
             // 
             // cbInventDate
             // 
@@ -523,47 +566,16 @@
             this.btAddScaner.UseVisualStyleBackColor = true;
             this.btAddScaner.Click += new System.EventHandler(this.btAddScaner_Click);
             // 
-            // cFio
+            // btAddTime
             // 
-            this.cFio.DataPropertyName = "fio";
-            this.cFio.HeaderText = "ФИО";
-            this.cFio.Name = "cFio";
-            this.cFio.ReadOnly = true;
-            // 
-            // cDeps
-            // 
-            this.cDeps.DataPropertyName = "nameDeps";
-            this.cDeps.HeaderText = "Отдел";
-            this.cDeps.Name = "cDeps";
-            this.cDeps.ReadOnly = true;
-            // 
-            // cGraph
-            // 
-            this.cGraph.DataPropertyName = "graphWork";
-            this.cGraph.HeaderText = "График работы";
-            this.cGraph.Name = "cGraph";
-            this.cGraph.ReadOnly = true;
-            // 
-            // cItogTime
-            // 
-            this.cItogTime.DataPropertyName = "TimeWorked_to_Time";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.NullValue = null;
-            this.cItogTime.DefaultCellStyle = dataGridViewCellStyle5;
-            this.cItogTime.HeaderText = "Итоговое время подсчета участка";
-            this.cItogTime.Name = "cItogTime";
-            this.cItogTime.ReadOnly = true;
-            // 
-            // cTakeTime
-            // 
-            this.cTakeTime.DataPropertyName = "CompensatoryTime";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.cTakeTime.DefaultCellStyle = dataGridViewCellStyle6;
-            this.cTakeTime.HeaderText = "Заработанный отгул";
-            this.cTakeTime.Name = "cTakeTime";
-            this.cTakeTime.ReadOnly = true;
+            this.btAddTime.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btAddTime.Image = global::dllInventoryScaners.Properties.Resources.view2;
+            this.btAddTime.Location = new System.Drawing.Point(1009, 258);
+            this.btAddTime.Name = "btAddTime";
+            this.btAddTime.Size = new System.Drawing.Size(32, 32);
+            this.btAddTime.TabIndex = 18;
+            this.btAddTime.UseVisualStyleBackColor = true;
+            this.btAddTime.Click += new System.EventHandler(this.btAddTime_Click);
             // 
             // frmMainForm
             // 
@@ -571,6 +583,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1137, 563);
             this.ControlBox = false;
+            this.Controls.Add(this.btAddTime);
             this.Controls.Add(this.btUpdate);
             this.Controls.Add(this.btDicExeption);
             this.Controls.Add(this.btComTime);
@@ -609,6 +622,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Информация по инвентаризации";
             this.Load += new System.EventHandler(this.frmMainForm_Load);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmMainForm_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.dgvScaners)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlane)).EndInit();
             this.statusStrip1.ResumeLayout(false);
@@ -665,6 +679,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cGraph;
         private System.Windows.Forms.DataGridViewTextBoxColumn cItogTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn cTakeTime;
+        private System.Windows.Forms.Button btAddTime;
     }
 }
 

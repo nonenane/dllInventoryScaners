@@ -38,8 +38,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="compensatoryTime">
-      <HintPath>..\..\compensatoryTime.dll</HintPath>
+    <Reference Include="compensatoryTime, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\договор 2710\dllInventoryScaners\compensatoryTime.dll</HintPath>
     </Reference>
     <Reference Include="DicCompensatoryTime, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -72,6 +73,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="datetimeCellCalendare.cs" />
     <Compile Include="frmAddNumberScaner.cs">
       <SubType>Form</SubType>
     </Compile>

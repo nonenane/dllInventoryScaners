@@ -21,13 +21,14 @@ namespace dllInventoryScaners
         /// Получение сотрудника по коду бейджика
         /// </summary>        
         /// <returns></returns>
-        public static DataTable getKadForScaner(Int64 code)
+        public static DataTable getKadForScaner(Int64? code=null,Int64? beject = null)
         {
             ap.Clear();
             ap.Add(code);
+            ap.Add(beject);
             return sql.executeProcedure("[inventory].[getKadForScaner]",
-                new string[] {"@code" },
-                new DbType[] { DbType.Int64}, ap);
+                new string[2] {"@code", "@numbejec" },
+                new DbType[2] { DbType.Int64, DbType.Int64 }, ap);
         }
 
         /// <summary>
@@ -371,7 +372,7 @@ namespace dllInventoryScaners
         /// </summary>        
         /// <returns></returns>
         /// 
-        public static DataTable AddNewTime(int id_kadr, int id_ttost, string timeS, string timeEnd, int type, string scan, int idCreater)
+        public static DataTable AddNewTime(int id_kadr, int id_ttost, DateTime timeS, DateTime timeEnd, int type, string scan, int idCreater,int? id_spacing)
         {
             ap.Clear();
             ap.Add(id_kadr);
@@ -381,21 +382,24 @@ namespace dllInventoryScaners
             ap.Add(type);
             ap.Add(scan);
             ap.Add(idCreater);
+            ap.Add(id_spacing);
 
             return sql.executeProcedure("[inventory].[AddNewTime]",
-                new string[] { "@id_kadr", "@id_ttost", "@timeS", "@timeEnd", "@type", "@scan", "@idCreater" },
-                new DbType[] { DbType.Int32, DbType.Int32, DbType.String, DbType.String, DbType.Int32, DbType.String, DbType.Int32 }, ap);
+                new string[] { "@id_kadr", "@id_ttost", "@timeS", "@timeEnd", "@type", "@scan", "@idCreater", "@id_spacing" },
+                new DbType[] { DbType.Int32, DbType.Int32, DbType.DateTime, DbType.DateTime, DbType.Int32, DbType.String, DbType.Int32, DbType.Int32 }, ap);
         }
 
-        public static DataTable EditSingleTableForScaner(int id, string timeStart, string timeEnd)
+        public static DataTable EditSingleTableForScaner(int id, DateTime timeStart, DateTime timeEnd, int? id_spacing)
         {
             ap.Clear();
             ap.Add(id);
             ap.Add(timeStart);
             ap.Add(timeEnd);
+            ap.Add(UserSettings.User.Id);
+            ap.Add(id_spacing);
             return sql.executeProcedure("[inventory].[EditSingleTableForScaner]",
-                new string[3] { "@id", "@timeStart", "@timeEnd" },
-                new DbType[3] { DbType.Int32, DbType.String, DbType.String }, ap);
+                new string[5] { "@id", "@timeStart", "@timeEnd","@id_Editor", "@id_spacing" },
+                new DbType[5] { DbType.Int32, DbType.DateTime, DbType.DateTime, DbType.Int32, DbType.Int32 }, ap);
         }
 
         #endregion

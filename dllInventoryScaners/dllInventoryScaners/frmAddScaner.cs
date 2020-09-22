@@ -110,15 +110,18 @@ namespace dllInventoryScaners
                 {
                     tbFIO.Clear();
                     tbTime.Clear();
+                    tbDate.Clear();
+                    tbNumBeject.Clear();
                     tbCodeBaje.Clear();
                     tbCodeBaje.Focus();
                     btBlank.Enabled = btScaner.Enabled = false;
                     return;
                 }
-                DataTable dtResult = readSQL.getKadForScaner(Int64.Parse(tbCodeBaje.Text));
+                DataTable dtResult = readSQL.getKadForScaner(Int64.Parse(tbCodeBaje.Text),null);
                 if (dtResult != null && dtResult.Rows.Count > 0)
                 {
                     tbTime.Text = dtResult.Rows[0]["nowTime"].ToString();
+                    tbDate.Text = dtResult.Rows[0]["nowDate"].ToString();
                     tbFIO.Text = dtResult.Rows[0]["FIO"].ToString();
                     id_kadr = int.Parse(dtResult.Rows[0]["id_kadr"].ToString());
                     btBlank.Enabled = btScaner.Enabled = true;
@@ -128,6 +131,8 @@ namespace dllInventoryScaners
                     MessageBox.Show("Данный сотрудник не найден в базе!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     tbFIO.Clear();
                     tbTime.Clear();
+                    tbDate.Clear();
+                    tbNumBeject.Clear();
                     tbCodeBaje.Clear();
                     tbCodeBaje.Focus();
                     btBlank.Enabled = btScaner.Enabled = false;
@@ -229,6 +234,46 @@ namespace dllInventoryScaners
         private void frmAddScaner_Load(object sender, EventArgs e)
         {
             this.Text += $" {nameShop}";
+            lShopName.Text = nameShop;
+        }
+
+        private void tbNumBeject_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Int64 _code;
+                if (!Int64.TryParse(tbNumBeject.Text, out _code))
+                {
+                    tbFIO.Clear();
+                    tbTime.Clear();
+                    tbDate.Clear();
+                    tbNumBeject.Clear();
+                    tbCodeBaje.Clear();
+                    tbNumBeject.Focus();
+                    btBlank.Enabled = btScaner.Enabled = false;
+                    return;
+                }
+                DataTable dtResult = readSQL.getKadForScaner(null, Int64.Parse(tbNumBeject.Text));
+                if (dtResult != null && dtResult.Rows.Count > 0)
+                {
+                    tbTime.Text = dtResult.Rows[0]["nowTime"].ToString();
+                    tbDate.Text = dtResult.Rows[0]["nowDate"].ToString();
+                    tbFIO.Text = dtResult.Rows[0]["FIO"].ToString();
+                    id_kadr = int.Parse(dtResult.Rows[0]["id_kadr"].ToString());
+                    btBlank.Enabled = btScaner.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Данный сотрудник не найден в базе!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    tbFIO.Clear();
+                    tbTime.Clear();
+                    tbDate.Clear();
+                    tbNumBeject.Clear();
+                    tbCodeBaje.Clear();
+                    tbNumBeject.Focus();
+                    btBlank.Enabled = btScaner.Enabled = false;
+                }
+            }
         }
     }
 }
