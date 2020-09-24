@@ -159,6 +159,7 @@ namespace dllInventoryScaners
                 Nwuram.Framework.Settings.User.UserSettings.User.StatusCode.ToLower() == "адм");
 
             btAddScaner.Visible = Nwuram.Framework.Settings.User.UserSettings.User.StatusCode.ToLower() == "оои";
+            //btAddTime.Visible = Nwuram.Framework.Settings.User.UserSettings.User.StatusCode.ToLower() == "кио";
             get_data();
         }
 
@@ -308,8 +309,8 @@ namespace dllInventoryScaners
             btComTime.Visible = (task.Result != null && task.Result.Rows.Count > 0 && task.Result.Rows[0]["value"].ToString().Equals("1") && Nwuram.Framework.Settings.User.UserSettings.User.StatusCode.ToLower().Equals("кнт"));
 
 
-            btSettings.Visible = btReport.Visible  = //btDicExeption.Visible = 
-                btEditTime.Visible = Nwuram.Framework.Settings.User.UserSettings.User.StatusCode.ToLower().Equals("кнт");
+            btAddTime.Visible = btSettings.Visible = btReport.Visible = //btDicExeption.Visible = 
+                 btEditTime.Visible = Nwuram.Framework.Settings.User.UserSettings.User.StatusCode.ToLower().Equals("кнт");
         }
 
         private void cmbShop_SelectionChangeCommitted(object sender, EventArgs e)
